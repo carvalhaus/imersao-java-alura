@@ -14,7 +14,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         // Conexão HTTP e consumindo API
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json"; //link alternativo
+        //String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json"; //link alternativo
+        String nasaKey = System.getenv("NASA_API_KEY");
+        String url = "https://api.nasa.gov/planetary/apod?api_key=" + nasaKey +"&start_date=2023-03-01&end_date=2023-03-29";
         URI link = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(link).GET().build();
@@ -36,26 +38,26 @@ public class App {
         path.mkdir();
         
         for (Map<String,String> top : topMovies) {
-            String urlImagem = top.get("image");
+            String urlImagem = top.get("url");
             String titulo = top.get("title");
             String nomeArquivo = "saida/" + titulo + ".png";
             InputStream inputStream = new URL(urlImagem).openStream();
             
 
             System.out.println(emojiTv + " Título do filme: \u001b[3m" + titulo + "\u001b[m");
-            double ratingDb = Double.parseDouble(top.get("imDbRating")); //convertendo String em Double
-            int rate = (int) ratingDb; //convertendo Double em int
-            System.out.println("Classificação " + emojiStar.repeat(rate) + "\n");
+            //double ratingDb = Double.parseDouble(top.get("imDbRating")); //convertendo String em Double
+            //int rate = (int) ratingDb; //convertendo Double em int
+            //System.out.println("Classificação " + emojiStar.repeat(rate) + "\n");
             
             String textoFigurinha;
             InputStream stamp;
-            if (rate >= 9) {
-                textoFigurinha = "RECOMENDO!";
-                stamp = new FileInputStream(new File("resource/stamp-approved.png"));
-            } else {
-                textoFigurinha = "NÃO ASSISTA!";
-                stamp = new FileInputStream(new File("resource/stamp-denied.png"));
-            }
+            // if (rate >= 9) {
+            // } else {
+            //     textoFigurinha = "NÃO ASSISTA!";
+            //     stamp = new FileInputStream(new File("resource/stamp-denied.png"));
+            // }
+            textoFigurinha = "RECOMENDO!";
+            stamp = new FileInputStream(new File("resource/stamp-approved.png"));
 
             GeradorFigurinhas geradora = new GeradorFigurinhas();
             geradora.criaFigurinhas(inputStream, nomeArquivo, textoFigurinha, stamp);
