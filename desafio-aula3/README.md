@@ -1,18 +1,8 @@
-## Getting Started
+# Desafio Aula 3
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrição do desafio
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1. Transformar a classe que representa os conteúdos em um Record, disponível a partir do Java 16.
+2. Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP.
+3. Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista em uma outra.
+4. Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado.
