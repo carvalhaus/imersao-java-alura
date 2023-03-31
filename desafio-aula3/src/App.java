@@ -7,7 +7,7 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        API api = API.NASA;
+        API api = API.LINGUAGENS;
 
         String url = api.getUrl();
 
@@ -22,7 +22,7 @@ public class App {
         // Exibindo dados da lista
         String emojiTelescope = Character.toString(0x1F52D);
 
-        System.out.println("\u001b[1m===== Gerando Figurinhas dos Filmes =====\u001b[m \n");
+        System.out.println("\u001b[1m===== Gerando Figurinhas =====\u001b[m \n");
 
         File path = new File("saida/");
         path.mkdir();
